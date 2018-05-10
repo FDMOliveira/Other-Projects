@@ -68,7 +68,7 @@
                     }, 700);
                 }
                 document.querySelector('span#moves').innerHTML=moves;
-            })
+            });
         });
     }
     function resetGame() {
