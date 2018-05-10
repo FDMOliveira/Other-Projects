@@ -16,7 +16,7 @@ body {
     font-family: 'helium';
     font-size:39px;
     opacity: 0;
-    transition: 0.7s;
+    transition: 0.7s all;
 }
 body.fade-in {
     opacity: 1;
@@ -151,7 +151,7 @@ body.fade-in {
 }
 @media screen and (max-width: 800px) and (orientation: landscape) {
     .game-container {
-        top: 9vh;
+        top: 6vh;
         height: 80vh;
         width: 76vw;
     }

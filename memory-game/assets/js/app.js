@@ -1,4 +1,5 @@
 (function() {
+    $('body').addClass('fade-in');
     function gameStart () {
         var imageArray = [
             'icon-brush','icon-burger','icon-rocket','icon-cup','icon-diamond',
@@ -19,7 +20,6 @@
             var index = imageArray.indexOf(newImageArray[i]);
             imageArray.splice(index, 1);
         }
-        $('body').addClass('fade-in');
         $('.game-container .game-piece').each(function() {
             $(this).on('click', function() {
                 var index = $(this).attr('id');
