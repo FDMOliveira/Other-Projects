@@ -144,6 +144,17 @@ body {
         font-family: 'Poppins', sans-serif;
     }
 }
+@media screen and (max-width: 800px) and (orientation: landscape) {
+    .game-container {
+        top: 9vh;
+        height: 80vh;
+        width: 76vw;
+    }
+    .game-container .game-piece {
+        width: 21%;
+        height: 16%;
+    }
+}
 @media screen and (min-width:1000px) {
     body {
         font-size: 60px;
