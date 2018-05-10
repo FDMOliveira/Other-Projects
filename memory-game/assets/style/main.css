@@ -13,7 +13,7 @@
 body {
     background-color: #1c4db6;
     overflow: hidden;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'helium';
     font-size:39px;
 }
 /*
@@ -21,7 +21,6 @@ body {
 * 
 */
 .icon {
-	font-family: 'helium';
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -142,6 +141,7 @@ body {
         opacity: 0;
         transform: scale(0); 
         transition: all 0.3s;
+        font-family: 'Poppins', sans-serif;
     }
 }
 @media screen and (min-width:1000px) {
