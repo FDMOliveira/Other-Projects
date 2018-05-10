@@ -10,7 +10,11 @@
             length = imageArray.length,
             lastChild, 
             sumPaired=0,
-            pairedElementID=100;
+            pairedElementID=100,
+            moves=0,
+            startTime, 
+            interval;
+
 
         for (var i=0;i<length;i++) {
             imageArray.push(imageArray[i]);
@@ -20,10 +24,22 @@
             var index = imageArray.indexOf(newImageArray[i]);
             imageArray.splice(index, 1);
         }
+
+        function start(){
+            startTime = Date.now();
+            interval = setInterval(function(){
+                var elapsedTime = Date.now() - startTime;
+                document.querySelector("#time").innerHTML = (elapsedTime / 1000).toFixed(0)+"s";
+            });
+        }
+        function stop(){
+            clearInterval(interval);
+        }
         $('.game-container .game-piece').each(function() {
             $(this).on('click', function() {
                 var index = $(this).attr('id');
                 $(this).addClass('move');
+                moves++;
                 if (selectedImage) {
                     if ((selectedImage == newImageArray[index]) && (lastChild.attr('id') !== $(this).attr('id'))) {
                         pairedElementID=$(this).attr('id');
@@ -32,18 +48,26 @@
                         sumPaired++;
                     }   
                     else
-                    if (lastChild.attr('id') !== pairedElementID)
+                    if (lastChild.attr('id') !== pairedElementID) {
                         $(lastChild).removeClass('move');
+                    }
+                    if (lastChild.attr('id') == $(this).attr('id')) 
+                        moves--;    
                 }
+                else 
+                    start();
                 selectedImage = newImageArray[index];
                 $('#'+index+' .back').addClass(selectedImage);
                 lastChild=$(this);
                 if(sumPaired === (newImageArray.length/2)) {
+                    stop();
                     setTimeout(() => {
                         $('.game-over').addClass('on');
-                        $('.game-container').addClass('fade-out');      
+                        $('.game-container').addClass('fade-out');   
+                        $('.upperbody').addClass('onmove');         
                     }, 700);
                 }
+                document.querySelector('span#moves').innerHTML=moves;
             })
         });
     }
@@ -53,6 +77,7 @@
         selectedImage="";
         pairedElementID=100;
         lastChild ="";
+        moves=0;
         $('.game-container .game-piece').each(function() {
             $(this).off('click');
             $(this).css("pointer-events", "auto");
