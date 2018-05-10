@@ -87,6 +87,7 @@
     gameStart();
     $('.game-over .play-again').on('click', function() {
         $('.game-over').removeClass('on');
+        $('.upperbody').removeClass('onmove');         
         setTimeout(() => {
             $('.game-container').removeClass('fade-out');
             $('.game-container .game-piece').each(function() {
