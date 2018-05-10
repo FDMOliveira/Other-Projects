@@ -1,0 +1,110 @@
+@media screen and (min-width:1px) {
+    :root {
+        --front-card-color:white;
+    }
+    body {
+        background-color: #22577c;
+        overflow: hidden;
+        font-family: 'Poppins', sans-serif;
+    }
+    .game-container {
+        top: 17vh;
+        height: 64vh;
+        position: relative;
+        width: 90vw;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        transition: all 0.5s;
+        opacity: 1;
+    }
+    .game-container.fade-out {
+        opacity: 0;
+    }
+    .game-container .game-piece {
+        width: 21%;
+        height: 15%;
+        background: var(--front-card-color);
+        cursor: pointer;
+        border-radius: 2px;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: 0.5s all;
+    }
+    .game-piece .front {
+        background-color: rgb(24, 48, 83);
+    }
+    .game-piece .front,
+    .game-piece .back {
+        position: absolute;
+        backface-visibility: hidden;
+        height: 100%;
+        width: 100%;
+    }
+    .back {
+        transform: rotateY(180deg);
+        background-position: 50%;
+        background-size: 40%;
+        background-repeat: no-repeat;
+        background-color: #ffff;
+    }
+    .game-piece.move {
+        transform:rotateY(180deg);
+    }
+    .game-over.on {
+        opacity: 1;
+        transform: scale(1); 
+        color:white;
+    }
+    .play-again {
+        position: relative;
+        color:yellow;
+        cursor: pointer;
+        z-index: 1;
+    }
+    .play-again::after {
+        position: absolute;
+        top: 92%;
+        left: 0;
+        height: 12px;
+        background-color: blue; 
+        width: 100%;
+        transform: rotate(-3deg);
+        content: '';
+        z-index: -1;
+    }
+    .game-over {
+        position: absolute;
+        top: 40vh;
+        font-size: 40px;
+        opacity: 0;
+        transform: scale(0); 
+        transition: all 0.3s;
+    }
+}
+@media screen and (min-width:1000px) {
+    .game-container {
+        top: 15vh;
+        height: 66vh;
+    }   
+    .game-container .game-piece {
+        width: 17%;
+        height: 20%
+    }
+    .game-over {
+        font-size:60px;
+    }
+}
+@media screen and (min-width:1440px) {
+    .game-container {
+        width: 78vw;
+    }
+    .game-over {
+        width: 100%;
+        text-align: center;        
+    }
+    .game-over {
+        font-size: 73px;
+    }    
+}
