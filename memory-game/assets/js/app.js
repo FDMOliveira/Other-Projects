@@ -1,8 +1,8 @@
 (function() {
     function gameStart () {
         var imageArray = [
-            'brush.svg','burger.svg','rocket.svg','cup.svg','diamond.svg',
-            'flash.svg','gamepad.svg','heart.svg','lamp.svg','send.svg'
+            'icon-brush','icon-burger','icon-rocket','icon-cup','icon-diamond',
+            'icon-flash','icon-gamepad','icon-heart','icon-lamp','icon-send'
         ];
         var newImageArray = [],
             selectedImage,
@@ -35,7 +35,7 @@
                         $(lastChild).removeClass('move');
                 }
                 selectedImage = newImageArray[index];
-                $('#'+index+' .back').css("background-image","url(./assets/images/"+selectedImage+")");
+                $('#'+index+' .back').addClass(selectedImage);
                 lastChild=$(this);
                 if(sumPaired === (newImageArray.length/2)) {
                     setTimeout(() => {

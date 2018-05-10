@@ -1,4 +1,4 @@
-# Other-Projects
+# Other Projects
 This repository has projects that i have made for my own, which are not exercises from any course
 
 ## 1. Memory Game
