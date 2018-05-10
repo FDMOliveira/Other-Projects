@@ -11,7 +11,7 @@
     --front-card-color:white;
 }
 body {
-    background-color: #1c4db6;
+    background-color: #a0a0a0;
     overflow: hidden;
     font-family: 'helium';
     font-size:39px;
@@ -84,15 +84,13 @@ body {
     .game-container .game-piece {
         width: 21%;
         height: 15%;
-        background: var(--front-card-color);
         cursor: pointer;
-        border-radius: 2px;
         position: relative;
         transform-style: preserve-3d;
         transition: 0.5s all;
     }
     .game-piece .front {
-        background-color: rgb(24, 48, 83);
+        background-color: rgb(13, 72, 158);
     }
     .game-piece .front,
     .game-piece .back {
@@ -100,6 +98,8 @@ body {
         backface-visibility: hidden;
         height: 100%;
         width: 100%;
+        border-radius: 5px;
+        box-shadow: 0 0 20px #676767;
     }
     .back {
         transform: rotateY(180deg);
