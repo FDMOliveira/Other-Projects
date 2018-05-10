@@ -19,6 +19,7 @@
             var index = imageArray.indexOf(newImageArray[i]);
             imageArray.splice(index, 1);
         }
+        $('body').addClass('fade-in');
         $('.game-container .game-piece').each(function() {
             $(this).on('click', function() {
                 var index = $(this).attr('id');
