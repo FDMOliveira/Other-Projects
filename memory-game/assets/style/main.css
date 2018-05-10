@@ -158,15 +158,13 @@ body {
     }
     .game-over {
         font-size:60px;
+        width: 100%;
+        text-align: center;        
     }
 }
 @media screen and (min-width:1440px) {
     .game-container {
         width: 78vw;
-    }
-    .game-over {
-        width: 100%;
-        text-align: center;        
     }
     .game-over {
         font-size: 73px;
