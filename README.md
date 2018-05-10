@@ -5,4 +5,4 @@ This repository has projects that i have made for my own, which are not exercise
 A classic memory game made to practice javascript and CSS3 3D effects.
 It's fully responsive.
 
-I hope you like it :)
+[Enjoy](https://rawgit.com/FDMOliveira/Other-Projects/master/memory-game/index.html) :)
