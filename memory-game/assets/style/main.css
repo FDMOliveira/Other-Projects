@@ -176,7 +176,8 @@ body.fade-in {
 }
 @media screen and (max-width: 800px) and (orientation: landscape) {
     .game-container {
-        top: 1vh;
+        position: relative;
+        top: 0;
         height: 80vh;
         width: 76vw;
     }
