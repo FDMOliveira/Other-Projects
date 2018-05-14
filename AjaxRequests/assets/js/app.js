@@ -61,9 +61,10 @@
 
             httpRequest.onreadystatechange = writeSomeData;
             httpRequest.open('POST','./assets/data/musicians.json', true);
-            httpRequest.setRequestHeader('Content-Type','application/json');
-            httpRequest.setRequestHeader('Data-Type','application/json');
-            httpRequest.setRequestHeader('Cache-control','no-cache');
+            httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            httpRequest.setRequestHeader("Content-length", queryString.length);
+            httpRequest.setRequestHeader("Connection", "close");
+
             httpRequest.send(JSON.stringify({pic:picUrlValue, name:nameValue, quote:quoteValue}));
 
             function writeSomeData() {
