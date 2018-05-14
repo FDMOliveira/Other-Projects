@@ -62,7 +62,10 @@
             httpRequest.onreadystatechange = writeSomeData;
             httpRequest.open('POST','./assets/data/musicians.json', true);
             httpRequest.setRequestHeader('Content-Type','application/json');
+            httpRequest.setRequestHeader('Access-Control-Allow-Origin', '*');
+            httpRequest.setRequestHeader('Access-Control-Allow-Methods', '*');
             httpRequest.setRequestHeader('Access-Control-Allow-Headers', 'api-key,content-type');
+            httpRequest.setRequestHeader('Access-Control-Allow-Credentials', true);
             httpRequest.setRequestHeader('Cache-control','no-cache');
             httpRequest.send(JSON.stringify({pic:picUrlValue, name:nameValue, quote:quoteValue}));
 
