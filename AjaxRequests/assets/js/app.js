@@ -61,9 +61,9 @@
 
             httpRequest.onreadystatechange = writeSomeData;
             httpRequest.open('POST','./assets/data/musicians.json', true);
-            httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            httpRequest.setRequestHeader("Content-length", queryString.length);
-            httpRequest.setRequestHeader("Connection", "close");
+            httpRequestchange.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            httpRequestchange.setRequestHeader("Content-length", queryString.length);
+            httpRequestchange.setRequestHeader("Connection", "close");
 
             httpRequest.send(JSON.stringify({pic:picUrlValue, name:nameValue, quote:quoteValue}));
 
