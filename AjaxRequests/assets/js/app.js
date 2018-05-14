@@ -9,7 +9,10 @@
                 
                 var id = $(this).data("id");
                 $('.pic').addClass('in');
-                
+
+                $('.name').removeClass('in-name');
+                $('.quote').removeClass('in-quote');
+
                 name.parentNode.removeChild(name);
                 var newName = document.createElement("DIV");
                 newName.setAttribute('class', 'name');
