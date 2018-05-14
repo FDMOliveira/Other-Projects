@@ -1,11 +1,13 @@
 (function() {
     $(document).ready(function() {
         var httpRequest;
+        var response;
         $('.ask').on('click', function() {
             var id = $(this).data("id");
+            $('.submit-player').removeClass('in');
             $('.name').removeClass('in-name');
             $('.quote').removeClass('in-quote');  
-            if(id!==3) {          
+            if (id !== 3) {          
                 setTimeout(() => {
                     $('.pic').addClass('in');
                     $('.name').addClass('in-name');
@@ -60,26 +62,25 @@
             ajaxValidation();
 
             httpRequest.onreadystatechange = writeSomeData;
-            httpRequest.open('POST','./assets/data/musicians.json', true);
-            httpRequestchange.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            httpRequestchange.setRequestHeader("Content-length", queryString.length);
-            httpRequestchange.setRequestHeader("Connection", "close");
-
-            httpRequest.send(JSON.stringify({pic:picUrlValue, name:nameValue, quote:quoteValue}));
-
+            var object = JSON.stringify({pic:picUrlValue, name:nameValue, quote:quoteValue});
+            httpRequest.open('POST','save.php', true);
+            httpRequest.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            httpRequest.setRequestHeader('Cache-control','no-cache');
+            httpRequest.send('object='+object);
+            
             function writeSomeData() {
                 try {
                     if (httpRequest.readyState === XMLHttpRequest.DONE) {
                       if (httpRequest.status === 200) {
-                            var response = JSON.parse(httpRequest.response);
-                            alert(response);
-                      } else {
-                        alert('There was a problem with the request.');
+                            response = JSON.parse(httpRequest.response);
+                            console.log(response);
                       }
+                      else 
+                       console.log('There was a problem with the request.');
                     }
                   }
                   catch( e ) {
-                    alert('Caught Exception: ' + e.description);
+                    console.log('Caught Exception: ' + e.description);
                   }
             }
         }

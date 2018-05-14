@@ -1,6 +1,6 @@
 @media screen and (min-width:1px) {
     main {
-        width: 300vw;
+        width: 100vw;
         display: flex;
         position: fixed;
         height: 100vh;
@@ -13,13 +13,13 @@
         margin: 0;
     }
     .list {
-        z-index: 2;
+        z-index: 20;
         height: 180px;
         width: 43px;
         display: flex;
         list-style-type: none;
-        right: 5%;
-        position: absolute;
+        left: 70%;
+        position: relative;
         flex-direction: column;
         justify-content:space-between;
     }
@@ -39,6 +39,9 @@
     }
     .list .ask:nth-of-type(3) {
         background:url('http://www.kerrang.com/assets/images/33614/davegrohl_2dd0ba4a7e213111b95ba908ba06fd15.jpg') 40%/cover no-repeat;
+    }
+    .list .ask:nth-of-type(4) {
+        background-color: white;
     }
     .list .ask:nth-of-type(4)::after,
     .list .ask:nth-of-type(4)::before {
@@ -83,7 +86,7 @@
     .player-container {
         width: 100vw;
         height: 100vh;
-        position: relative;
+        position: absolute;
     }
     .player-container .pic {
         width: 100vw;
@@ -131,23 +134,44 @@
         transform: translateX(0%);
     }
     .submit-player {
-        z-index: 40;
+        z-index: 2;
         opacity: 0;
+        left: 2%;
         position: absolute;
         height: 50%;
         width: 80%;
-        top: 30%;
+        top: 27%;
+        margin: 0 auto;
+        transition: all 1s;
     }
-    .submit-player .submit-name,
-    .submit-player .submit-pic-url,
-    .submit-player .submit-quote {
-        border-radius: 5px;
-        background: white;
-        outline: 1px #000;
+    .submit-player .title {
+        font-size: 50px;
+        font-weight: 600;
+        color: white;
+        text-shadow: 0 0 9px #000;
+    }
+    .submit-player input[name="name"],
+    .submit-player input[name="pic-url"],
+    .submit-player input[name="quote"],
+    .submit-player .submit {
+        box-shadow: 0 0 8px #464646;
+        border-radius: 20px;
         width:100%;
         margin-top: 10%;
+        padding: 4px 0 5px 10px;
+        margin: 10px auto 0 auto;
+        border: 0;
     }
     .submit-player.in {
         opacity: 1;
+    }
+    .submit-player .submit {
+        text-align: center;
+        background-color: #fff;
+        margin-top: 8%;
+        border-radius: 20px;
+        width: 39%;
+        left: 10%;
+        position: relative;
     }
     }
