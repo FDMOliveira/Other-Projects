@@ -4,6 +4,23 @@
         $('.list .ask').each(function() {
             $(this).on('click', function() {
                 var id = $(this).data("id");
+                var name = document.querySelector('.name');
+                var quote = document.querySelector('#quote');
+                
+                var id = $(this).data("id");
+                $('.pic').addClass('in');
+                
+                name.parentNode.removeChild(name);
+                var newName = document.createElement("DIV");
+                newName.setAttribute('class', 'name');
+                
+                quote.parentNode.removeChild(quote);
+                var newQuote = document.createElement("DIV");
+                newQuote.setAttribute('id', 'quote');
+
+                document.querySelector('.player-container').appendChild(newName);
+                document.querySelector('.player-container .quote').appendChild(newQuote);
+                
                 $('.pic').addClass('in');
                 $('.name').addClass('in-name');
                 $('.quote').addClass('in-quote');
