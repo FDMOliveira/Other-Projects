@@ -1,114 +1,153 @@
 @media screen and (min-width:1px) {
-main {
-    width: 300vw;
-    display: flex;
-    position: fixed;
-    height: 100vh;
-}
-body {
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(#afafaf, #fff);
-    font-family: 'Raleway', sans-serif;
-    margin: 0;
-}
-.list {
-    z-index: 2;
-    height: 152px;
-    width: 43px;
-    display: flex;
-    list-style-type: none;
-    right: 5%;
-    position: absolute;
-    flex-direction: column;
-    justify-content:space-between;
-}
-.list .ask {
-    border-radius: 40px;
-    width: 90%;
-    height: 26%;
-    cursor: pointer;
-    box-shadow: 3px 4px 13px #484848;
-}
-.list .ask:nth-of-type(1) {
-    background:url('https://img.wennermedia.com/article-leads-horizontal-800/rs-josh-homme-1de32f04-08d2-4f67-b540-0dfcbaaf52ae.jpg') 80%/cover no-repeat;
-}
-.list .ask:nth-of-type(2) {
-    background:url('https://smhttp-ssl-33667.nexcesscdn.net/manual/wp-content/uploads/2016/06/Alex-turner-hair-e1483451905674.jpg') 50%/cover no-repeat;
-}
-.list .ask:nth-of-type(3) {
-    background:url('http://www.kerrang.com/assets/images/33614/davegrohl_2dd0ba4a7e213111b95ba908ba06fd15.jpg') 40%/cover no-repeat;
-}
-.central-stripe {
-    position: fixed;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    left: 25vw;
-    width: 50%;
-    z-index: 0;
-    background: #213259;
-}
-.name {
-    z-index: 1;
-    font-size: 62px;
-    font-weight: 600;
-    color: white;
-    width: 62%;
-    position: relative;
-    margin: 0 auto;
-    transform:translateY(18vh);
-    transition:all 1s;
-    text-indent: -34px;
-    text-shadow: 0 0 10px #232323;
-}
-.player-container {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-}
-.player-container .pic {
-    width: 100vw;
-    z-index: 1;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    position: absolute;
-    background-size: cover;
-    background-position: 71%;
-    background-repeat: no-repeat;
-}
-.player-container .pic.in {
-    opacity: 1;
-}
-.quote {
-    z-index: 1;
-    font-size: 33px;
-    font-weight: 400;
-    color: white;
-    text-shadow: 0 0 5px #000;
-    bottom: 19%;
-    margin-right: 2%;
-    width: 98%;
-    position: absolute;
-    height: 30%;
-    text-align: right;
-    transform: translateX(20%);
-}
-.pic, 
-.quote,
-.name {
-    opacity: 0;
-    transition:all 1s;
-}
-.name.in-name {
-    transform: translateY(22vh);
-    opacity: 1;
-    transition-delay: 0.5s;
-}
-.quote.in-quote {
-    opacity: 1;
-    transition-delay: 1s;
-    transform: translateX(0%);
-}
-}
+    main {
+        width: 300vw;
+        display: flex;
+        position: fixed;
+        height: 100vh;
+    }
+    body {
+        height: 100vh;
+        width: 100vw;
+        background: linear-gradient(#afafaf, #fff);
+        font-family: 'Raleway', sans-serif;
+        margin: 0;
+    }
+    .list {
+        z-index: 2;
+        height: 180px;
+        width: 43px;
+        display: flex;
+        list-style-type: none;
+        right: 5%;
+        position: absolute;
+        flex-direction: column;
+        justify-content:space-between;
+    }
+    .list .ask {
+        border-radius: 40px;
+        width: 90%;
+        height: 21%;
+        position: relative;
+        cursor: pointer;
+        box-shadow: 3px 4px 13px #484848;
+    }
+    .list .ask:nth-of-type(1) {
+        background:url('https://img.wennermedia.com/article-leads-horizontal-800/rs-josh-homme-1de32f04-08d2-4f67-b540-0dfcbaaf52ae.jpg') 80%/cover no-repeat;
+    }
+    .list .ask:nth-of-type(2) {
+        background:url('https://smhttp-ssl-33667.nexcesscdn.net/manual/wp-content/uploads/2016/06/Alex-turner-hair-e1483451905674.jpg') 50%/cover no-repeat;
+    }
+    .list .ask:nth-of-type(3) {
+        background:url('http://www.kerrang.com/assets/images/33614/davegrohl_2dd0ba4a7e213111b95ba908ba06fd15.jpg') 40%/cover no-repeat;
+    }
+    .list .ask:nth-of-type(4)::after,
+    .list .ask:nth-of-type(4)::before {
+        content: '';
+        width: 60%;
+        height: 60%;
+        position: absolute;
+        border-radius: 3px;
+    }
+    .list .ask:nth-of-type(4)::after {
+        margin-top: 20%;
+        margin-left: 50%;
+        border-left: 3px solid black;
+    }
+    .list .ask:nth-of-type(4)::before {
+        margin-top: 48%;
+        margin-left: 20%;
+        border-top: 3px solid black;
+    }
+    .central-stripe {
+        position: fixed;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        left: 25vw;
+        width: 50%;
+        z-index: 0;
+        background: #213259;
+    }
+    .name {
+        z-index: 1;
+        font-size: 62px;
+        font-weight: 600;
+        color: white;
+        width: 62%;
+        position: relative;
+        margin: 0 auto;
+        transform:translateY(18vh);
+        text-indent: -34px;
+        text-shadow: 0 0 10px #232323;
+    }
+    .player-container {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+    }
+    .player-container .pic {
+        width: 100vw;
+        z-index: 1;
+        height: 100vh;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-size: cover;
+        background-position: 71%;
+        background-repeat: no-repeat;
+    }
+    .player-container .pic.in {
+        opacity: 1;
+    }
+    .quote {
+        z-index: 1;
+        font-size: 33px;
+        font-weight: 400;
+        color: white;
+        text-shadow: 0 0 5px #000;
+        bottom: 19%;
+        margin-right: 2%;
+        width: 98%;
+        position: absolute;
+        height: 30%;
+        text-align: right;
+        transform: translateX(20%);
+    }
+    .pic, 
+    .quote,
+    .name {
+        opacity: 0;
+        transition:all 1s;
+    }
+    .name.in-name {
+        transform: translateY(22vh);
+        opacity: 1;
+        transition-delay: 0.5s;
+    }
+    .quote.in-quote {
+        opacity: 1;
+        transition-delay: 1s;
+        transform: translateX(0%);
+    }
+    .submit-player {
+        z-index: 40;
+        opacity: 0;
+        position: absolute;
+        height: 50%;
+        width: 80%;
+        top: 30%;
+    }
+    .submit-player .submit-name,
+    .submit-player .submit-pic-url,
+    .submit-player .submit-quote {
+        border-radius: 5px;
+        background: white;
+        outline: 1px #000;
+        width:100%;
+        margin-top: 10%;
+    }
+    .submit-player.in {
+        opacity: 1;
+    }
+    }
