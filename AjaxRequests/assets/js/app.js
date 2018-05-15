@@ -44,13 +44,13 @@
                 context: document.body,
                 dataType:'json',
                 success: function(data){
-                    $('.pic').addClass('in');
-                    $('.name').addClass('in-name');
-                    $('.quote').addClass('in-quote');
                     var jsonObj = data[id];
                     document.querySelector('.pic').style.backgroundImage = "url("+jsonObj.pic+")";
                     document.querySelector('.name').innerHTML= jsonObj.name;
                     document.querySelector('#quote').innerHTML= jsonObj.quote; 
+                    $('.pic').addClass('in');
+                    $('.name').addClass('in-name');
+                    $('.quote').addClass('in-quote');
                 },
                 error: function(request,error) {
                     console.log("Request: "+JSON.stringify(request)+", error: "+error);
