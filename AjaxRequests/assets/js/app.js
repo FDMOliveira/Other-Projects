@@ -59,7 +59,6 @@
             var quoteValue = document.querySelector('input[name="quote"]').value;
             var picUrlValue = document.querySelector('input[name="pic-url"]');
             $('input').each(function() {
-                console.log(picUrlValue.value);
                 $(this).removeClass('error-placehold');
                 if (($(this).val().length < 1) || (/^[a-zA-Z]/.test($(this).val()) == false)) {
                     $(this).addClass('error-placehold'); 
@@ -83,7 +82,8 @@
             else {
                 $.post({
                     url: "save.php",
-                    cache:false,
+                    crossDomain: true,
+                    dataType: 'jsonp',
                     context: document.body,
                     data: 'name='+ nameValue + '&quote=' + quoteValue + '&pic=' + picUrlValue.value,
                     success: function(){
