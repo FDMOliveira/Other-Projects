@@ -35,9 +35,6 @@
         $.ajaxSetup({ cache: false });
         function getContainerInfo(id) {
             setTimeout(() => {
-                $('.pic').addClass('in');
-                $('.name').addClass('in-name');
-                $('.quote').addClass('in-quote');
                 getData(id);
             }, 1000);
         }
@@ -47,6 +44,9 @@
                 context: document.body,
                 dataType:'json',
                 success: function(data){
+                    $('.pic').addClass('in');
+                    $('.name').addClass('in-name');
+                    $('.quote').addClass('in-quote');
                     var jsonObj = data[id];
                     document.querySelector('.pic').style.backgroundImage = "url("+jsonObj.pic+")";
                     document.querySelector('.name').innerHTML= jsonObj.name;
