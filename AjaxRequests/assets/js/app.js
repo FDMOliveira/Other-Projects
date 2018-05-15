@@ -81,7 +81,7 @@
                 return false;
             else {
                 $.post({
-                    url: "save.php",
+                    url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/3a4ec8e4/AjaxRequests/save.php",
                     crossDomain: true,
                     dataType: 'jsonp',
                     context: document.body,
