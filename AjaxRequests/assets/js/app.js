@@ -35,7 +35,7 @@
         $.ajaxSetup({ cache: false });
         function getData (id) {
             $.get({
-                url: "./assets/data/musicians.json",
+                url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/26ddc836/AjaxRequests/assets/js/app.js",
                 context: document.body,
                 dataType:'json',
                 success: function(data){
