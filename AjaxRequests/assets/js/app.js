@@ -1,88 +1,109 @@
 (function() {
     $(document).ready(function() {
-        var httpRequest;
-        var response;
+        var httpRequest,
+            response,
+            id,
+            isUpdated = false,
+            isValid;
         $('.ask').on('click', function() {
-            var id = $(this).data("id");
-            $('.submit-player').removeClass('in');
+            id = $(this).data("id");
             $('.name').removeClass('in-name');
-            $('.quote').removeClass('in-quote');  
-            if (id !== 3) {          
-                setTimeout(() => {
-                    $('.pic').addClass('in');
-                    $('.name').addClass('in-name');
-                    $('.quote').addClass('in-quote');
-                    getData(id);
-                }, 1000);
-            }
-            else {
-                $('.submit-player').addClass('in');
-                $('.submit').on('click', writeData);
+            $('.quote').removeClass('in-quote');
+            $('.submit-player .title').removeClass('in');
+            $('.submit-player input').removeClass('in');
+            $('.submit-player').removeClass('in');  
+            if ((id !== null) && (id !== undefined)) { 
+                if (id !== 3) {          
+                    setTimeout(() => {
+                        getContainerInfo(id);
+                    }, 1000);
+                }
+                else {
+                    setTimeout(() => {
+                        if (isUpdated === false) {
+                            $('.submit-player').addClass('in');
+                            $('.submit-player .title').addClass('in');
+                            $('.submit-player input').addClass('in');
+                            $('.submit-player .submit').on('click', writeData);
+                        } 
+                        else
+                            getContainerInfo(id);
+                    }, 1000);
+                }
             }
         });
-        function ajaxValidation () {
-            // IE6 and older compatibility
-            if (window.XMLHttpRequest)
-                httpRequest = new XMLHttpRequest;
-            else if (window.ActiveXObject) {
-                httpRequest = new ActiveXObject;
-            }
+        $.ajaxSetup({ cache: false });
+        function getContainerInfo(id) {
+            setTimeout(() => {
+                $('.pic').addClass('in');
+                $('.name').addClass('in-name');
+                $('.quote').addClass('in-quote');
+                getData(id);
+            }, 1000);
         }
         function getData (id) {
-            ajaxValidation();
-            httpRequest.onreadystatechange = processData;
-            httpRequest.open('GET', './assets/data/musicians.json', true);
-            httpRequest.setRequestHeader('Content-Type','application/json');
-            httpRequest.setRequestHeader('Cache-control','no-cache');
-            httpRequest.send();
-            
-            function processData () {
-                try {
-                    if (httpRequest.readyState === XMLHttpRequest.DONE) {
-                        if (httpRequest.status === 200) {
-                            var jsonObj = JSON.parse(httpRequest.responseText)[id];
-                            document.querySelector('.pic').style.backgroundImage = "url("+jsonObj.pic+")";
-                            document.querySelector('.name').innerHTML= jsonObj.name;
-                            document.querySelector('#quote').innerHTML= jsonObj.quote;
-                        }
-                        else {
-                            console.log('Ups.... not yet folk');
-                        }
-                    } 
+            $.get({
+                url: "./assets/data/musicians.json",
+                context: document.body,
+                dataType:'json',
+                success: function(data){
+                    var jsonObj = data[id];
+                    document.querySelector('.pic').style.backgroundImage = "url("+jsonObj.pic+")";
+                    document.querySelector('.name').innerHTML= jsonObj.name;
+                    document.querySelector('#quote').innerHTML= jsonObj.quote; 
+                },
+                error: function(request,error) {
+                    console.log("Request: "+JSON.stringify(request)+", error: "+error);
                 }
-                catch(e) {
-                    console.log('error: '+ e);
-                }
-            }
+            });
         }
+        
         function writeData() {
+            isUpdated=true;
             var nameValue = document.querySelector('input[name="name"]').value;
             var quoteValue = document.querySelector('input[name="quote"]').value;
-            var picUrlValue = document.querySelector('input[name="pic-url"]').value; 
-            ajaxValidation();
-
-            httpRequest.onreadystatechange = writeSomeData;
-            var object = JSON.stringify({pic:picUrlValue, name:nameValue, quote:quoteValue});
-            httpRequest.open('POST','save.php', true);
-            httpRequest.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-            httpRequest.setRequestHeader('Cache-control','no-cache');
-            httpRequest.send('object='+object);
-            
-            function writeSomeData() {
-                try {
-                    if (httpRequest.readyState === XMLHttpRequest.DONE) {
-                      if (httpRequest.status === 200) {
-                            response = JSON.parse(httpRequest.response);
-                            console.log(response);
-                      }
-                      else 
-                       console.log('There was a problem with the request.');
+            var picUrlValue = document.querySelector('input[name="pic-url"]');
+            $('input').each(function() {
+                console.log(picUrlValue.value);
+                $(this).removeClass('error-placehold');
+                if (($(this).val().length < 1) || (/^[a-zA-Z]/.test($(this).val()) == false)) {
+                    $(this).addClass('error-placehold'); 
+                    var element=this;
+                    var newelement = element.cloneNode(true);
+                    element.parentNode.replaceChild(newelement, element);
+                    isValid=0;
+                }
+                else 
+                // Check all the parts of the URL including the format extension
+                if ((/^https:\/\/.+\.(gif|png|jpg|jpeg|webp)$/i.test(picUrlValue.value)==false))  {
+                    $(picUrlValue).addClass('error-placehold');
+                    var element=this;
+                    var newelement = element.cloneNode(true);
+                    element.parentNode.replaceChild(newelement, element);
+                    isValid=0;
+                } 
+            }) 
+            if (isValid==0)
+                return false;
+            else {
+                $.post({
+                    url: "save.php",
+                    cache:false,
+                    context: document.body,
+                    data: 'name='+ nameValue + '&quote=' + quoteValue + '&pic=' + picUrlValue.value,
+                    success: function(){
+                        $('ul li.ask[data-id="3"]').addClass('no-pseudo');
+                        $('ul li.ask[data-id="3"]').addClass("resize");
+                        $('ul li.ask[data-id="3"]').css('background','url('+picUrlValue.value+')0%/cover no-repeat');
+                        setTimeout(() => {
+                            $('ul li.ask[data-id="3"]').removeClass('resize');
+                        }, 400);
+                    },
+                    error: function(request,error) {
+                        console.log("Error! Request: "+JSON.stringify(request)+", error: "+error);
                     }
-                  }
-                  catch( e ) {
-                    console.log('Caught Exception: ' + e.description);
-                  }
-            }
+                });       
+            }                         
         }
     });
 })();

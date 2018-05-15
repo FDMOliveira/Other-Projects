@@ -1,4 +1,15 @@
-Images Copyright
+# Musician Quotes
+This is a web app that uses ajax to read a file from a JSON object on the server and uses PHP to update that file.
+
+# Instructions
+To upload an image, the protocol must be **https** and the file formats allowed are:
+ * gif
+ * png
+ * jpg
+ * jpeg
+ * webp
+
+# Images Copyright
 https://theidleman.com/manual/mens-hair/get-alex-turners-hairstyle/
 http://monkeybuzz.com.br/noticias/4261/alex-turner-do-arctic-monkeys-participara-de-disco-do-queens-of-the-stone-age/
 https://www.rollingstone.com/music/news/josh-homme-sued-for-alleged-assault-w473389

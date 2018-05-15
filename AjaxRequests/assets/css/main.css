@@ -41,7 +41,16 @@
         background:url('http://www.kerrang.com/assets/images/33614/davegrohl_2dd0ba4a7e213111b95ba908ba06fd15.jpg') 40%/cover no-repeat;
     }
     .list .ask:nth-of-type(4) {
+        transform: scale(1);
+        transition: all 0.4s;
         background-color: white;
+    }
+    .list .ask:nth-of-type(4).resize {
+        transform: scale(0);
+    }
+    .list .ask:nth-of-type(4).no-pseudo::after,
+    .list .ask:nth-of-type(4).no-pseudo::before {
+        display: none;
     }
     .list .ask:nth-of-type(4)::after,
     .list .ask:nth-of-type(4)::before {
@@ -50,6 +59,7 @@
         height: 60%;
         position: absolute;
         border-radius: 3px;
+        opacity: 1;
     }
     .list .ask:nth-of-type(4)::after {
         margin-top: 20%;
@@ -141,10 +151,12 @@
         height: 50%;
         width: 80%;
         top: 27%;
-        margin: 0 auto;
         transition: all 1s;
+        margin: 0 auto;
     }
     .submit-player .title {
+        transition: all 1s;
+        transform: translateY(-20px);
         font-size: 50px;
         font-weight: 600;
         color: white;
@@ -159,19 +171,87 @@
         width:100%;
         margin-top: 10%;
         padding: 4px 0 5px 10px;
+        background-color: #fff;  
         margin: 10px auto 0 auto;
         border: 0;
+        outline: 0;
     }
-    .submit-player.in {
+    .submit-player.in,
+    .submit-player.in .title.in{
         opacity: 1;
+        transition: all 0.7s 0.5s;
+        transform: translateY(0px);
     }
+    .submit-player input {
+        opacity: 0;
+        transition: all 1s;
+        transform: translatex(60px);
+    }
+    .submit-player input[name="name"].in,
+    .submit-player input[name="pic-url"].in,
+    .submit-player input[name="quote"].in {
+        opacity: 1;
+        transform: translatex(0px);
+        transition-delay: 0.7s;
+    }
+
     .submit-player .submit {
         text-align: center;
         background-color: #fff;
         margin-top: 8%;
+        font-weight: 600;
         border-radius: 20px;
         width: 39%;
         left: 10%;
         position: relative;
+        color: #213259; 
+        box-shadow: 0 1px 5px #000;
+        cursor: pointer;
     }
+    .submit-player input.error-placehold {
+        background-color: #b43030;  
+        transition: 0.4s 0s;
+        color: #fff;
+        border: 2px solid white !important;
+        animation: error 0.4s 2;
     }
+
+    @keyframes error {
+        0%,100% {transform: translateX(0)}
+        50% {transform: translateX(20px)}
+    }
+}
+@media screen and (min-width:1px) and (orientation:landscape) {
+    .list {
+        left: 83%;
+    }
+    .quote {
+        width: 84%;
+        font-size: 31px;
+    }
+    .submit-player input[name="name"].in, 
+    .submit-player input[name="pic-url"].in, 
+    .submit-player input[name="quote"].in {
+        width: 79%;
+        left: 14%;
+        position: relative;
+    }
+}
+@media screen and (min-width:1100px) { 
+    .list {
+        height: 318px;
+        width: 75px;
+        left: 89%;
+    }
+    .name {
+        text-shadow: 0px 4px 20px #232323;
+        font-size: 102px;
+        width: 73%;
+    }
+    .quote {
+        width: 88%;
+        left: 5%;
+        position: absolute;
+        font-size: 48px;
+    }
+}
