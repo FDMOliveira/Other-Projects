@@ -27,7 +27,7 @@
                             $('.submit-player .submit').on('click', writeData);
                         } 
                         else
-                            getContainerInfo(id);
+                            getData(id);
                     }, 1000);
                 }
             }
@@ -35,7 +35,7 @@
         $.ajaxSetup({ cache: false });
         function getData (id) {
             $.get({
-                url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/26ddc836/AjaxRequests/assets/js/app.js",
+                url:"https://cdn.rawgit.com/FDMOliveira/Other-Projects/26ddc836/AjaxRequests/assets/js/app.js",
                 context: document.body,
                 crossDomain: true,
                 dataType: 'jsonp',
