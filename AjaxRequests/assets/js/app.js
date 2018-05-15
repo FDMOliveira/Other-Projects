@@ -15,7 +15,7 @@
             if ((id !== null) && (id !== undefined)) { 
                 if (id !== 3) {          
                     setTimeout(() => {
-                        getContainerInfo(id);
+                        getData(id);
                     }, 1000);
                 }
                 else {
@@ -33,11 +33,6 @@
             }
         });
         $.ajaxSetup({ cache: false });
-        function getContainerInfo(id) {
-            setTimeout(() => {
-                getData(id);
-            }, 1000);
-        }
         function getData (id) {
             $.get({
                 url: "./assets/data/musicians.json",
