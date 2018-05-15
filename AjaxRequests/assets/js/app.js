@@ -37,7 +37,8 @@
             $.get({
                 url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/26ddc836/AjaxRequests/assets/js/app.js",
                 context: document.body,
-                dataType:'json',
+                crossDomain: true,
+                dataType: 'jsonp',
                 success: function(data){
                     var jsonObj = data[id];
                     document.querySelector('.pic').style.backgroundImage = "url("+jsonObj.pic+")";
