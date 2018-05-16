@@ -35,7 +35,7 @@
         $.ajaxSetup({ cache: false });
         function getData (id) {
             $.get({
-                url:"https://cdn.rawgit.com/FDMOliveira/Other-Projects/26ddc836/AjaxRequests/assets/js/app.js",
+                url:"https://cdn.rawgit.com/FDMOliveira/Other-Projects/master/AjaxRequests/assets/js/app.js",
                 context: document.body,
                 crossDomain: true,
                 dataType: 'jsonp',
@@ -82,7 +82,7 @@
                 return false;
             else {
                 $.post({
-                    url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/3a4ec8e4/AjaxRequests/save.php",
+                    url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/master/AjaxRequests/save.php",
                     crossDomain: true,
                     dataType: 'jsonp',
                     context: document.body,
