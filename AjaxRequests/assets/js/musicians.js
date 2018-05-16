@@ -37,8 +37,7 @@
             $.get({
                 url:"./assets/data/musicians.json",
                 context: document.body,
-                crossDomain: true,
-                dataType: 'jsonp',
+                dataType: 'json',
                 success: function(data){
                     var jsonObj = data[id];
                     document.querySelector('.pic').style.backgroundImage = "url("+jsonObj.pic+")";
