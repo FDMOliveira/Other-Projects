@@ -1,5 +1,6 @@
 # Musician Quotes
-This is a web app that uses ajax to read a file from a JSON object on the server and uses PHP to update that file.
+Musician Quotes is a web app that uses Ajax to read a file from a JSON object on the server and uses PHP to update that file with an image, the title of the musician and a quote.
+It's fully responsive.
 
 # Instructions
 To upload an image, the protocol must be **https** and the file formats allowed are:
