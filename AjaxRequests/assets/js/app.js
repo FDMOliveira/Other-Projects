@@ -5,17 +5,19 @@
             id,
             isUpdated = false,
             isValid;
+        $('.initial-screen#title').addClass('in');
         $('.ask').on('click', function() {
             id = $(this).data("id");
             $('.name').removeClass('in-name');
             $('.quote').removeClass('in-quote');
+            $('.initial-screen#title').removeClass('in');
             $('.submit-player .title').removeClass('in');
             $('.submit-player input').removeClass('in');
             $('.submit-player').removeClass('in');  
             if ((id !== null) && (id !== undefined)) { 
                 if (id !== 3) {          
                     setTimeout(() => {
-                        getData(id);
+                        getContainerInfo(id);
                     }, 1000);
                 }
                 else {
@@ -27,25 +29,30 @@
                             $('.submit-player .submit').on('click', writeData);
                         } 
                         else
-                            getData(id);
+                            getContainerInfo(id);
                     }, 1000);
                 }
             }
         });
         $.ajaxSetup({ cache: false });
+        function getContainerInfo(id) {
+            setTimeout(() => {
+                getData(id);
+            }, 1000);
+        }
         function getData (id) {
             $.get({
-                url:"./assets/data/musicians.json",
+                url: "./assets/data/app.json",
                 context: document.body,
-                dataType: 'json',
+                dataType:'json',
                 success: function(data){
+                    $('.pic').addClass('in');
+                    $('.name').addClass('in-name');
+                    $('.quote').addClass('in-quote');
                     var jsonObj = data[id];
                     document.querySelector('.pic').style.backgroundImage = "url("+jsonObj.pic+")";
                     document.querySelector('.name').innerHTML= jsonObj.name;
                     document.querySelector('#quote').innerHTML= jsonObj.quote; 
-                    $('.pic').addClass('in');
-                    $('.name').addClass('in-name');
-                    $('.quote').addClass('in-quote');
                 },
                 error: function(request,error) {
                     console.log("Request: "+JSON.stringify(request)+", error: "+error);
@@ -59,6 +66,7 @@
             var quoteValue = document.querySelector('input[name="quote"]').value;
             var picUrlValue = document.querySelector('input[name="pic-url"]');
             $('input').each(function() {
+                console.log(picUrlValue.value);
                 $(this).removeClass('error-placehold');
                 if (($(this).val().length < 1) || (/^[a-zA-Z]/.test($(this).val()) == false)) {
                     $(this).addClass('error-placehold'); 
@@ -82,8 +90,7 @@
             else {
                 $.post({
                     url: "save.php",
-                    crossDomain: true,
-                    dataType: 'jsonp',
+                    cache:false,
                     context: document.body,
                     data: 'name='+ nameValue + '&quote=' + quoteValue + '&pic=' + picUrlValue.value,
                     success: function(){
