@@ -42,7 +42,7 @@
         }
         function getData (id) {
             $.get({
-                url: "./assets/data/app.json",
+                url: "./assets/data/musicians.json",
                 context: document.body,
                 dataType:'json',
                 success: function(data){
