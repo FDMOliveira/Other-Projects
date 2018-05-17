@@ -53,7 +53,6 @@
                 }
             });
         }
-        
         function writeData() {
             isValid=1;
             var nameValue = document.querySelector('input[name="name"]').value;
