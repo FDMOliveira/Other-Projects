@@ -1,4 +1,6 @@
 <?php
+    header("Access-Control-Allow-Origin: *");
+
     $name = $_POST['name'];
     $quote = $_POST['quote'];
     $pic = $_POST['pic'];
