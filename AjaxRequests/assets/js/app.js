@@ -80,10 +80,9 @@
             if (isValid==0)
                 return false;
             else {
-                $.ajax({
+                $.post({
                     url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/ae71bd4/AjaxRequests/save.php",
                     context: document.body,
-                    type: 'POST',
                     dataType:'jsonp',
                     crossDomain: true,
                     data: 'name='+ nameValue + '&quote=' + quoteValue + '&pic=' + picUrlValue.value,
