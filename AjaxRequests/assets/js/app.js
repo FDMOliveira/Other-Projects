@@ -15,7 +15,7 @@
             $('.submit-player').removeClass('in');  
             if ((id !== null) && (id !== undefined)) { 
                 if (id !== 3)        
-                    getData(id);
+                    getDataWait(id);
                 else {
                     if (isUpdated === false) {
                         $('.submit-player').addClass('in');
@@ -24,10 +24,15 @@
                         $('.submit-player .submit').on('click', writeData);
                     } 
                     else
-                        getData(id);
+                    getDataWait(id);
                 }
             }
         });
+        function getDataWait (id) {
+            setTimeout(() => {
+                getData(id);
+            }, 1000);
+        }
         $.ajaxSetup({ cache: false });
         function getData (id) {
             $.get({
