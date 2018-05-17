@@ -42,7 +42,7 @@
         }
         function getData (id) {
             $.get({
-                url: "./assets/data/musicians.json",
+                url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/master/AjaxRequests/assets/data/musicians.json",
                 context: document.body,
                 dataType:'json',
                 success: function(data){
@@ -89,7 +89,7 @@
                 return false;
             else {
                 $.post({
-                    url: "save.php",
+                    url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/master/AjaxRequests/save.php",
                     cache:false,
                     context: document.body,
                     data: 'name='+ nameValue + '&quote=' + quoteValue + '&pic=' + picUrlValue.value,
