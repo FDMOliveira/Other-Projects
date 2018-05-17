@@ -29,17 +29,12 @@
                             $('.submit-player .submit').on('click', writeData);
                         } 
                         else
-                            getContainerInfo(id);
+                            getData(id);
                     }, 1000);
                 }
             }
         });
         $.ajaxSetup({ cache: false });
-        function getContainerInfo(id) {
-            setTimeout(() => {
-                getData(id);
-            }, 1000);
-        }
         function getData (id) {
             $.get({
                 url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/master/AjaxRequests/assets/data/musicians.json",
