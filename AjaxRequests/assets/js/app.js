@@ -82,7 +82,7 @@
                 return false;
             else {
                 $.ajax({
-                    url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/ajax/AjaxRequests/save.php",
+                    url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/ae71bd4/AjaxRequests/save.php",
                     context: document.body,
                     method: 'POST',
                     dataType:'jsonp',
