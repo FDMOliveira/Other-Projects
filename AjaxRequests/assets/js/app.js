@@ -84,7 +84,7 @@
                 $.post({
                     url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/master/AjaxRequests/save.php",
                     context: document.body,
-                    dataType:'jsonp',
+                    dataType:'php',
                     crossDomain: true,
                     data: 'name='+ nameValue + '&quote=' + quoteValue + '&pic=' + picUrlValue.value,
                     success: function(){
