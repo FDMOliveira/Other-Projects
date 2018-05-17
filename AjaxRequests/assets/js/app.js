@@ -82,8 +82,6 @@
             else {
                 $.post({
                     url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/ae71bd4/AjaxRequests/save.php",
-                    dataType:'jsonp',
-                    jsonp:false,
                     crossDomain: true,
                     data: 'name='+ nameValue + '&quote=' + quoteValue + '&pic=' + picUrlValue.value,
                     success: function(){
