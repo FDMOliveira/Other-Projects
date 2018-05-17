@@ -83,7 +83,7 @@
                 $.ajax({
                     url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/ae71bd4/AjaxRequests/save.php",
                     context: document.body,
-                    method: 'POST',
+                    type: 'POST',
                     dataType:'jsonp',
                     crossDomain: true,
                     data: 'name='+ nameValue + '&quote=' + quoteValue + '&pic=' + picUrlValue.value,
