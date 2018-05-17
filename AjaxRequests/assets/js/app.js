@@ -90,7 +90,6 @@
             else {
                 $.post({
                     url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/master/AjaxRequests/save.php",
-                    cache:false,
                     context: document.body,
                     dataType:'jsonp',
                     crossDomain: true,
