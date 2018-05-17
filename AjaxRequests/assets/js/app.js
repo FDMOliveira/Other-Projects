@@ -2,12 +2,11 @@
     $(document).ready(function() {
         var httpRequest,
             response,
-            id,
             isUpdated = false,
             isValid;
         $('.initial-screen#title').addClass('in');
         $('.ask').on('click', function() {
-            id = $(this).data("id");
+            var id = $(this).data("id");
             $('.name').removeClass('in-name');
             $('.quote').removeClass('in-quote');
             $('.initial-screen#title').removeClass('in');
@@ -15,22 +14,17 @@
             $('.submit-player input').removeClass('in');
             $('.submit-player').removeClass('in');  
             if ((id !== null) && (id !== undefined)) { 
-                if (id !== 3) {          
-                    setTimeout(() => {
-                        getContainerInfo(id);
-                    }, 1000);
-                }
+                if (id !== 3)        
+                    getData(id);
                 else {
-                    setTimeout(() => {
-                        if (isUpdated === false) {
-                            $('.submit-player').addClass('in');
-                            $('.submit-player .title').addClass('in');
-                            $('.submit-player input').addClass('in');
-                            $('.submit-player .submit').on('click', writeData);
-                        } 
-                        else
-                            getData(id);
-                    }, 1000);
+                    if (isUpdated === false) {
+                        $('.submit-player').addClass('in');
+                        $('.submit-player .title').addClass('in');
+                        $('.submit-player input').addClass('in');
+                        $('.submit-player .submit').on('click', writeData);
+                    } 
+                    else
+                        getData(id);
                 }
             }
         });
@@ -56,7 +50,6 @@
         }
         
         function writeData() {
-            isUpdated=true;
             isValid=1;
             var nameValue = document.querySelector('input[name="name"]').value;
             var quoteValue = document.querySelector('input[name="quote"]').value;
@@ -90,6 +83,7 @@
                     crossDomain: true,
                     data: 'name='+ nameValue + '&quote=' + quoteValue + '&pic=' + picUrlValue.value,
                     success: function(){
+                        isUpdated=true;
                         console.log("sucess");
                         $('ul li.ask[data-id="3"]').addClass('no-pseudo');
                         $('ul li.ask[data-id="3"]').addClass("resize");
