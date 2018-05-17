@@ -92,6 +92,8 @@
                     url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/master/AjaxRequests/save.php",
                     cache:false,
                     context: document.body,
+                    dataType:'jsonp',
+                    crossDomain: true,
                     data: 'name='+ nameValue + '&quote=' + quoteValue + '&pic=' + picUrlValue.value,
                     success: function(){
                         console.log("sucess");
