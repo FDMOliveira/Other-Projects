@@ -62,11 +62,11 @@
         
         function writeData() {
             isUpdated=true;
+            isValid=1;
             var nameValue = document.querySelector('input[name="name"]').value;
             var quoteValue = document.querySelector('input[name="quote"]').value;
             var picUrlValue = document.querySelector('input[name="pic-url"]');
             $('input').each(function() {
-                console.log(picUrlValue.value);
                 $(this).removeClass('error-placehold');
                 if (($(this).val().length < 1) || (/^[a-zA-Z]/.test($(this).val()) == false)) {
                     $(this).addClass('error-placehold'); 
@@ -94,6 +94,7 @@
                     context: document.body,
                     data: 'name='+ nameValue + '&quote=' + quoteValue + '&pic=' + picUrlValue.value,
                     success: function(){
+                        console.log("sucess");
                         $('ul li.ask[data-id="3"]').addClass('no-pseudo');
                         $('ul li.ask[data-id="3"]').addClass("resize");
                         $('ul li.ask[data-id="3"]').css('background','url('+picUrlValue.value+')0%/cover no-repeat');
