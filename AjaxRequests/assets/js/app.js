@@ -81,10 +81,11 @@
             if (isValid==0)
                 return false;
             else {
-                $.post({
+                $.ajax({
                     url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/ajax/AjaxRequests/save.php",
                     context: document.body,
-                    dataType:'php',
+                    method: 'POST',
+                    dataType:'json',
                     crossDomain: true,
                     data: 'name='+ nameValue + '&quote=' + quoteValue + '&pic=' + picUrlValue.value,
                     success: function(){
