@@ -84,7 +84,8 @@
                     url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/ae71bd4/AjaxRequests/save.php",
                     crossDomain: true,
                     contentType: 'application/x-www-form-urlencoded',
-                    data: 'name='+ nameValue + '&quote=' + quoteValue + '&pic=' + picUrlValue.value,
+                    dataType:"json",
+                    data: 'name='+ nameValue + '&quote=' + quoteValue,
                     success: function(){
                         isUpdated=true;
                         console.log("sucess");
