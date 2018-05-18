@@ -81,7 +81,7 @@
                 return false;
             else {
                 $.post({
-                    url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/ae71bd4/AjaxRequests/save.php",
+                    url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/14c26c4/AjaxRequests/save.php",
                     crossDomain: true,
                     contentType: 'application/x-www-form-urlencoded',
                     dataType:"json",
