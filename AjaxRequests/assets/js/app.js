@@ -83,7 +83,7 @@
                 $.post({
                     url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/ae71bd4/AjaxRequests/save.php",
                     crossDomain: true,
-                    contentType:"application/json; charset=utf-8",
+                    contentType: 'application/x-www-form-urlencoded',
                     dataType:"json",
                     data: 'name='+ nameValue + '&quote=' + quoteValue + '&pic=' + picUrlValue.value,
                     success: function(){
