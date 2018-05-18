@@ -83,9 +83,9 @@
                 $.post({
                     url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/14c26c4/AjaxRequests/save.php",
                     crossDomain: true,
-                    contentType: 'application/json',
+                    contentType: "application/json; charset=utf-8",
                     dataType:"json",
-                    data: {name: nameValue , quote: quoteValue},
+                    data: {name: nameValue, quote: quoteValue},
                     success: function(){
                         isUpdated=true;
                         console.log("sucess");

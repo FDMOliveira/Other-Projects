@@ -4,7 +4,7 @@
 
     $name = $_POST['name'];
     $quote = $_POST['quote'];
-    $pic = $_POST['pic'] || 'image';
+    $pic = $_POST['pic'];
 
     $myObj->name = $name;
     $myObj->pic = $pic;
