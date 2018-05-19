@@ -30,7 +30,7 @@
                     $('.name').addClass('in-name');
                     $('.quote').addClass('in-quote');
                     var jsonObj = data[id];
-                    document.querySelector('.pic').style.backgroundImage = "url("+jsonObj.pic+")";
+                    document.querySelector('.pic').style.backgroundImage = "url(data:image/jpg;base64,"+jsonObj.pic+")";
                     document.querySelector('.name').innerHTML= jsonObj.name;
                     document.querySelector('#quote').innerHTML= jsonObj.quote; 
                 },
