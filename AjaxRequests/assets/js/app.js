@@ -1,19 +1,12 @@
 (function() {
     $(document).ready(function() {
-        var httpRequest,
-            response,
-            isUpdated = false,
-            isValid;
         $('.initial-screen#title').addClass('in');
         $('.ask').on('click', function() {
             var id = $(this).data("id");
             $('.name').removeClass('in-name');
             $('.quote').removeClass('in-quote');
             $('.initial-screen#title').removeClass('in');
-            $('.submit-player .title').removeClass('in');
-            $('.submit-player input').removeClass('in');
-            $('.submit-player').removeClass('in');  
-            if ((id !== null) && (id !== undefined)) {    
+            if (id) {    
                 setTimeout(() => {
                     getData(id);
                 }, 500);
@@ -30,6 +23,8 @@
                     $('.name').addClass('in-name');
                     $('.quote').addClass('in-quote');
                     var jsonObj = data[id];
+                    if (jsonObj.name == "Dave Grohl")
+                        document.querySelector('.pic').style.backgroundPosition="62%";                          
                     document.querySelector('.pic').style.backgroundImage = "url(data:image/jpg;base64,"+jsonObj.pic+")";
                     document.querySelector('.name').innerHTML= jsonObj.name;
                     document.querySelector('#quote').innerHTML= jsonObj.quote; 
