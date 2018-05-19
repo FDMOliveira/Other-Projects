@@ -16,7 +16,7 @@
             if ((id !== null) && (id !== undefined)) {    
                 setTimeout(() => {
                     getData(id);
-                }, 1000);
+                }, 500);
             }
         });
         $.ajaxSetup({ cache: false });
