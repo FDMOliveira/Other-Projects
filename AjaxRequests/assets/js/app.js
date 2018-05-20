@@ -19,6 +19,8 @@
                 context: document.body,
                 dataType:'json',
                 success: function(data){
+                    console.log('Sucess');
+                    console.log(data);
                     $('.pic').addClass('in');
                     $('.name').addClass('in-name');
                     $('.quote').addClass('in-quote');
