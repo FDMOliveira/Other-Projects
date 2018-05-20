@@ -1,13 +1,8 @@
 # Musician Quotes
-This is a web app that uses ajax to read a file from a JSON object on the server and uses PHP to update that file.
+MusicianQuotes is a fully responsive web app that uses a ajax call to read a file from a JSON object on the server.
 
-# Instructions
-To upload an image, the protocol must be **https** and the file formats allowed are:
- * gif
- * png
- * jpg
- * jpeg
- * webp
+From that file, the *HTML* gets the name of the musician player, the musician quote, and the musician picture converted in base64 format to save a http request. 
+
 
 # Images Copyright
 https://theidleman.com/manual/mens-hair/get-alex-turners-hairstyle/
