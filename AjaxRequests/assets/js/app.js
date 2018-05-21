@@ -19,19 +19,20 @@
                 context: document.body,
                 dataType:'json',
                 success: function(data){  
-                    console.log('Sucess');
-                    console.log(data);
                     $('.pic').addClass('in');
                     $('.name').addClass('in-name');
                     $('.quote').addClass('in-quote');
                     var jsonObj = data[id];
-                    var bg = new Image();
-                    bg.src = jsonObj.pic;
-                    if (jsonObj.name == "Dave Grohl")
-                        document.querySelector('.pic').style.backgroundPosition="62%";                          
-                    document.querySelector('.pic').style.backgroundImage = "url(data:image/jpg;base64,"+bg.src+")";
-                    document.querySelector('.name').innerHTML= jsonObj.name;
-                    document.querySelector('#quote').innerHTML= jsonObj.quote; 
+                    console.log('Sucess');
+                    var img = new Image(); 
+                    img.onload = function() {
+                        document.querySelector('.pic').style.backgroundImage = "url("+jsonObj.pic+")";
+                        if (jsonObj.name == "Dave Grohl")
+                            document.querySelector('.pic').style.backgroundPosition="62%";                          
+                        document.querySelector('.name').innerHTML= jsonObj.name;
+                        document.querySelector('#quote').innerHTML= jsonObj.quote; 
+                    }; 
+                    img.src = jsonObj.pic;
                 },
                 error: function(request,error) {
                     console.log("Request: "+JSON.stringify(request)+", error: "+error);
