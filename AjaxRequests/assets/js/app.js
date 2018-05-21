@@ -19,6 +19,8 @@
                 context: document.body,
                 dataType:'json',
                 success: function(data){
+                    var bg = new Image();
+                    bg.src = jsonObj.pic;  
                     console.log('Sucess');
                     console.log(data);
                     $('.pic').addClass('in');
@@ -27,7 +29,7 @@
                     var jsonObj = data[id];
                     if (jsonObj.name == "Dave Grohl")
                         document.querySelector('.pic').style.backgroundPosition="62%";                          
-                    document.querySelector('.pic').style.backgroundImage = "url(data:image/jpg;base64,"+jsonObj.pic+")";
+                    document.querySelector('.pic').style.backgroundImage = "url(data:image/jpg;base64,"+bg.src+")";
                     document.querySelector('.name').innerHTML= jsonObj.name;
                     document.querySelector('#quote').innerHTML= jsonObj.quote; 
                 },
