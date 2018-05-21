@@ -156,11 +156,11 @@
     .name.in-name {
         transform: translateY(22vh);
         opacity: 1;
-        transition-delay: 0.5s;
+        transition-delay: 0.3s;
     }
     .quote.in-quote {
         opacity: 1;
-        transition-delay: 1s;
+        transition-delay: 0.6s;
         transform: translateX(0%);
     }
     .submit-player {
