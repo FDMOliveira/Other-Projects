@@ -9,11 +9,12 @@
             if (id) {    
                 setTimeout(() => {
                     getData(id);
-                }, 500);
+                }, 700);
             }
         });
         $.ajaxSetup({ cache: false });
         function getData (id) {
+            console.log(id);
             $.get({
                 url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/9dbd871/AjaxRequests/assets/data/musicians.json",
                 context: document.body,
@@ -23,7 +24,7 @@
                     $('.name').addClass('in-name');
                     $('.quote').addClass('in-quote');
                     var jsonObj = data[id];
-                    console.log('Sucess');
+                    console.log(jsonObj);
                     var img = new Image(); 
                     img.onload = function() {
                         document.querySelector('.pic').style.backgroundImage = "url("+jsonObj.pic+")";
