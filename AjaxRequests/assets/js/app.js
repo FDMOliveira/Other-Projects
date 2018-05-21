@@ -8,7 +8,7 @@
             $('.initial-screen#title').removeClass('in');
             setTimeout(() => {
                 getData(id);
-            }, 500);
+            }, 400);
         });
         $.ajaxSetup({ cache: false });
         function getData (id) {
