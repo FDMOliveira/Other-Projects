@@ -6,15 +6,12 @@
             $('.name').removeClass('in-name');
             $('.quote').removeClass('in-quote');
             $('.initial-screen#title').removeClass('in');
-            if (id) {    
-                setTimeout(() => {
-                    getData(id);
-                }, 700);
-            }
+            setTimeout(() => {
+                getData(id);
+            }, 700);
         });
         $.ajaxSetup({ cache: false });
         function getData (id) {
-            console.log(id);
             $.get({
                 url: "https://cdn.rawgit.com/FDMOliveira/Other-Projects/9dbd871/AjaxRequests/assets/data/musicians.json",
                 context: document.body,
